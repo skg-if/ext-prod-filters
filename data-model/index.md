@@ -1,6 +1,6 @@
 ---
 title: Data model
-parent: Extension template
+parent: Product filter extension
 layout: default
 nav_order: 3
 # nav_exclude: false

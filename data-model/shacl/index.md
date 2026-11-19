@@ -1,6 +1,6 @@
 ---
 title: SHACL
-parent: Extension template
+parent: Product filter extension
 layout: default
 nav_order: 4
 has_toc: false

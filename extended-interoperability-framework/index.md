@@ -1,6 +1,6 @@
 ---
 title: Interoperability framework
-parent: Extension template
+parent: Product filter extension
 layout: default
 nav_order: 2
 has_toc: false
