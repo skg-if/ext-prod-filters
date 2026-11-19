@@ -6,7 +6,7 @@ actions:
   - target: $.tags
     update:
       - name: Comment
-        description: comment operations (skg-if tmpl extension)
+        description: comment operations (skg-if prod-filters extension)
   - target: $.paths
     update:
       '/comments':
@@ -16,7 +16,7 @@ actions:
             summary: Get list of Comments. 
             operationId: getComment
             description: |
-                Get a list of `Comments`. See definition in SKG-IF [Extension template] (https://skg-if.github.io/ext-tmpl/extended-interoperability-framework/extension-entities/tmpl-comment.html) (entity_type: tmpl_comment ).
+                Get a list of `Comments`. See definition in SKG-IF [Product filter extension] (https://skg-if.github.io/ext-prod-filters/extended-interoperability-framework/extension-entities/prod-filters-comment.html) (entity_type: prod-filters_comment ).
             parameters:
               - name: filter
                 in: query
@@ -48,7 +48,7 @@ actions:
                               - $ref: '#/components/schemas/JsonLdCtxBaseOrMore'
                               - $ref: '#/components/schemas/JsonLdCtxExt-srv'
                           examples:
-                            - ["https://w3id.org/skg-if/context/1.1.0/skg-if.json", "https://w3id.org/skg-if/context/1.0.0/skg-if-api.json", {"@base": "https://w3id.org/skg-if/sandbox/my-skg-acronym/"}, "https://w3id.org/skg-if/extension/tmpl/context/skg-if.json"]
+                            - ["https://w3id.org/skg-if/context/1.1.0/skg-if.json", "https://w3id.org/skg-if/context/1.0.0/skg-if-api.json", {"@base": "https://w3id.org/skg-if/sandbox/my-skg-acronym/"}, "https://w3id.org/skg-if/extension/prod-filters/context/skg-if.json"]
                             #add the 4th JsonLdCtx
                         meta:
                           type: object
@@ -66,7 +66,7 @@ actions:
             - Comment
           summary: Get comment by id
           description: |
-              Get a single `comment`. See definition in SKG-IF extension [Extension template](https://skg-if.github.io/ext-tmpl/extended-interoperability-framework/extension-entities/tmpl-comment.html) ( entity_type:tmpl_comment ).
+              Get a single `comment`. See definition in SKG-IF extension [Product filter extension](https://skg-if.github.io/ext-prod-filters/extended-interoperability-framework/extension-entities/prod-filters-comment.html) ( entity_type:prod-filters_comment ).
           operationId: getCommentById
           parameters:
               - $ref : '#/components/parameters/localIdPathParam'
@@ -91,7 +91,7 @@ actions:
                               - $ref: '#/components/schemas/JsonLdCtxBaseOrMore'
                               - $ref: '#/components/schemas/JsonLdCtxExt-srv'
                          examples:
-                           - ["https://w3id.org/skg-if/context/1.1.0/skg-if.json", "https://w3id.org/skg-if/context/1.0.0/skg-if-api.json", {"@base": "https://w3id.org/skg-if/sandbox/my-skg-acronym/"}, "https://w3id.org/skg-if/extension/tmpl/context/skg-if.json"]
+                           - ["https://w3id.org/skg-if/context/1.1.0/skg-if.json", "https://w3id.org/skg-if/context/1.0.0/skg-if-api.json", {"@base": "https://w3id.org/skg-if/sandbox/my-skg-acronym/"}, "https://w3id.org/skg-if/extension/prod-filters/context/skg-if.json"]
                       "@graph":
                         type: array
                         minItems: 1
@@ -115,16 +115,16 @@ actions:
           ]
           properties:
             entity_type:
-              default: "tmpl_comment"
+              default: "prod-filters_comment"
               type: string
               x-faker:
-                helpers.arrayElement: [["tmpl_comment"]]
-            tmpl_content:
+                helpers.arrayElement: [["prod-filters_comment"]]
+            prod-filters_content:
               type: string
               x-faker:
   - target: $.components.schemas.Product.allOf[1].properties
     update:
-      tmpl_comments:
+      prod-filters_comments:
         description: "List of Comments"
         type: array
         items:

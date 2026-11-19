@@ -1,6 +1,6 @@
 ---
 title: API extensions
-parent: Extension template
+parent: Product filter extension
 layout: default
 nav_order: 7
 # nav_exclude: true
@@ -9,18 +9,18 @@ nav_order: 7
 # API extensions
 
 {: .important }
-To prevent possible clashes with other extensions, each extension is assigned a unique prefix (e.g., the acronym you provided upon requesting an extension) that you need to prepend when defining new properties and relations for core entities. For this extension, the acronym is `tmpl`.
+To prevent possible clashes with other extensions, each extension is assigned a unique prefix (e.g., the acronym you provided upon requesting an extension) that you need to prepend when defining new properties and relations for core entities. For this extension, the acronym is `prod-filters`.
 
 
 ## Expected output
 In this page, please document how your extension affects the [(core) Open API specification](/api).
 
-The effects on the Open API specification are expressed via an [**overlay**](https://learn.openapis.org/overlay/). An overlay consist of one or more actions to update the existing specification, e.g. adding a path, a schema or a property. The overlay for this template is [./ver/current/tmpl-overlay.yaml](./ver/current/tmpl-overlay.yaml).
+The effects on the Open API specification are expressed via an [**overlay**](https://learn.openapis.org/overlay/). An overlay consist of one or more actions to update the existing specification, e.g. adding a path, a schema or a property. The overlay for this template is [./ver/current/prod-filters-overlay.yaml](./ver/current/prod-filters-overlay.yaml).
 
 An overlay can be applied to the existing Open API specification (the core one or one already extended with another extension) using a tool like [openapi](https://github.com/speakeasy-api/openapi), which can the also validate the resulting Open API specification:
 
 ```sh
-openapi overlay apply --overlay tmpl-overlay.yaml --schema skg-if-openapi.yaml > out.yaml
+openapi overlay apply --overlay prod-filters-overlay.yaml --schema skg-if-openapi.yaml > out.yaml
 openapi spec validate out.yaml
 ```
 
@@ -37,7 +37,7 @@ actions:
   - target: $.tags
     update:
       - name: Comment
-        description: comment operations (skg-if tmpl extension)
+        description: comment operations (skg-if prod-filters extension)
   - target: $.paths
     update:
       '/comments':
@@ -47,7 +47,7 @@ actions:
             summary: Get list of Comments. 
             operationId: getComment
             description: |
-                Get a list of `Comments`. See definition in SKG-IF [Extension template] (https://skg-if.github.io/ext-tmpl/extended-interoperability-framework/extension-entities/tmpl-comment.html) (entity_type: tmpl_comment ).
+                Get a list of `Comments`. See definition in SKG-IF [Product filter extension] (https://skg-if.github.io/ext-prod-filters/extended-interoperability-framework/extension-entities/prod-filters-comment.html) (entity_type: prod-filters ).
             parameters:
               - name: filter
                 in: query
@@ -84,7 +84,7 @@ actions:
             - Comment
           summary: Get comment by id
           description: |
-              Get a single `comment`. See definition in SKG-IF extension [Extension template](https://skg-if.github.io/ext-tmpl/extended-interoperability-framework/extension-entities/tmpl-comment.html) ( entity_type:tmpl_comment ).
+              Get a single `comment`. See definition in SKG-IF extension [Product filter extension](https://skg-if.github.io/ext-prod-filters/extended-interoperability-framework/extension-entities/prod-filters-comment.html) ( entity_type:prod-filters_comment ).
           operationId: getCommentById
           parameters:
               - $ref : '#/components/parameters/shortLocalIdPathParam'
@@ -128,11 +128,11 @@ In the _@graph_ part of the response the schema for the entity is referenced. So
           ]
           properties:
             entity_type:
-              default: "tmpl_comment"
+              default: "prod-filters_comment"
               type: string
               x-faker:
-                helpers.arrayElement: [["tmpl_comment"]]
-            tmpl_content:
+                helpers.arrayElement: [["prod-filters_comment"]]
+            prod-filters_content:
               type: string
               x-faker:
  ```
@@ -145,7 +145,7 @@ When the extension adds a new property to an existing entity (from the core mode
 ```yaml
   - target: $.components.schemas.Product.allOf[1].properties
     update:
-      tmpl_comments:
+      prod-filters_comments:
         description: "List of Comments"
         type: array
         items:

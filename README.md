@@ -1,4 +1,4 @@
-# extension-template
+# Product filter extension
 
-This repository is a blank template of an SKG-IF extension.
+This repository hosts the documentation of the API extension for product filters.
 

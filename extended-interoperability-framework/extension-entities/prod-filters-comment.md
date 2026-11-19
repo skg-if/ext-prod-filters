@@ -10,7 +10,7 @@ nav_order: 3
 # Comment
 
 {: .important }
-To prevent possible clashes with other extensions, each extension is assigned a unique prefix (e.g., the acronym you provided upon requesting an extension) that you need to prepend when defining new properties and relations for core entities. For this extension, the acronym is `tmpl`.
+To prevent possible clashes with other extensions, each extension is assigned a unique prefix (e.g., the acronym you provided upon requesting an extension) that you need to prepend when defining new properties and relations for core entities. For this extension, the acronym is `prod-filters`.
 
 Describe here the properties and relations of [Comment] introduced by this extension.
 Like any other entity in the SKG-IF, [Comment] has to have some basic mandatory fields for identification and for its type.
@@ -47,18 +47,18 @@ Each identifier is structured as follows:
 ```
 
 ### `entity_type`
-*String* (mandatory): Field stating what kind of entity is being serialised. Needed for parsing purposes; fixed to `tmpl_comment`. Please notice that you need to prepend the assigned `tmpl_` prefix to your type in order to prevent possible clashes with other extensions.
+*String* (mandatory): Field stating what kind of entity is being serialised. Needed for parsing purposes; fixed to `prod-filters_comment`. Please notice that you need to prepend the assigned `prod-filters_` prefix to your type in order to prevent possible clashes with other extensions.
 
 ```json
-"entity_type": "tmpl_comment"
+"entity_type": "prod-filters_comment"
 ```
 
-### `tmpl_content`
+### `prod-filters_content`
 *String* (mandatory): attribute description.
 
 ```json
-"tmpl_content": "In this paper, the authors contribute to the SoA with A, B, and C."
+"prod-filters_content": "In this paper, the authors contribute to the SoA with A, B, and C."
 ```
 
 ----
-[Comment]: {% link ext-tmpl/extended-interoperability-framework/extension-entities/tmpl-comment.md %}
+[Comment]: {% link ext-prod-filters/extended-interoperability-framework/extension-entities/prod-filters-comment.md %}
