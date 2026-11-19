@@ -1,7 +1,7 @@
 ---
 title: Comment
 parent: Interoperability framework
-ancestor: Extension template
+ancestor: Product filter extension
 layout: default
 nav_order: 3
 # nav_exclude: true

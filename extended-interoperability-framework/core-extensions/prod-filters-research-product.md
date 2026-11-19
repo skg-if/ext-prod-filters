@@ -1,7 +1,7 @@
 ---
 title: Research product
 parent: Interoperability framework
-ancestor: Extension template
+ancestor: Product filter extension
 layout: default
 nav_order: 2
 # nav_exclude: true
